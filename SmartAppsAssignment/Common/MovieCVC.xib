@@ -23,7 +23,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mW-ed-Pvs">
-                        <rect key="frame" x="130" y="0.0" width="210" height="26.5"/>
+                        <rect key="frame" x="130" y="0.0" width="175" height="26.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -34,15 +34,28 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqa-KH-2Wt">
+                        <rect key="frame" x="315" y="0.0" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="bsF-1c-LLa"/>
+                            <constraint firstAttribute="width" constant="35" id="cuQ-1d-Tw6"/>
+                        </constraints>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="delete.left.fill" catalog="system">
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                        </state>
+                    </button>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="4A8-zq-Xbz" firstAttribute="top" secondItem="0mW-ed-Pvs" secondAttribute="bottom" constant="20" id="1Pe-Rq-JnG"/>
                 <constraint firstAttribute="bottom" secondItem="bCg-KJ-hmu" secondAttribute="bottom" id="LYz-66-EBC"/>
+                <constraint firstItem="bqa-KH-2Wt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="QYC-b7-iPo"/>
                 <constraint firstItem="0mW-ed-Pvs" firstAttribute="leading" secondItem="bCg-KJ-hmu" secondAttribute="trailing" constant="10" id="Sq5-vB-Ls0"/>
                 <constraint firstAttribute="trailing" secondItem="4A8-zq-Xbz" secondAttribute="trailing" constant="10" id="V2j-vm-d6r"/>
                 <constraint firstItem="bCg-KJ-hmu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="VJZ-Pt-CxK"/>
-                <constraint firstAttribute="trailing" secondItem="0mW-ed-Pvs" secondAttribute="trailing" constant="10" id="bjV-as-D0s"/>
+                <constraint firstItem="bqa-KH-2Wt" firstAttribute="leading" secondItem="0mW-ed-Pvs" secondAttribute="trailing" constant="10" id="bjV-as-D0s"/>
+                <constraint firstAttribute="trailing" secondItem="bqa-KH-2Wt" secondAttribute="trailing" id="dt9-YB-l33"/>
                 <constraint firstItem="0mW-ed-Pvs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kOb-Aa-Qsq"/>
                 <constraint firstItem="bCg-KJ-hmu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tfy-va-0dq"/>
                 <constraint firstItem="4A8-zq-Xbz" firstAttribute="leading" secondItem="bCg-KJ-hmu" secondAttribute="trailing" constant="10" id="tw5-aO-I72"/>
@@ -50,6 +63,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="350" height="157"/>
             <connections>
+                <outlet property="btnDelete" destination="bqa-KH-2Wt" id="eOG-8H-eIv"/>
                 <outlet property="imgView" destination="bCg-KJ-hmu" id="tN3-GJ-HLp"/>
                 <outlet property="labelDescr" destination="4A8-zq-Xbz" id="ccL-16-Waa"/>
                 <outlet property="labelName" destination="0mW-ed-Pvs" id="oo5-QT-jua"/>
@@ -57,4 +71,7 @@
             <point key="canvasLocation" x="349.27536231884062" y="127.56696428571428"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="delete.left.fill" catalog="system" width="64" height="52"/>
+    </resources>
 </document>

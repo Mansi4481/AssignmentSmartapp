@@ -13,6 +13,7 @@ class MovieCVC: UICollectionViewCell {
     @IBOutlet weak var imgView : UIImageView?
     @IBOutlet weak var labelName : UILabel?
     @IBOutlet weak var labelDescr : UILabel?
+    @IBOutlet weak var btnDelete : UIButton?
     
     override func awakeFromNib() {
         super.awakeFromNib()

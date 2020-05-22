@@ -142,7 +142,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="panda.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="rQM-T7-iKy">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rQM-T7-iKy">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KDf-Ri-JZZ">
@@ -368,6 +368,5 @@
         <image name="ic_time" width="24" height="24"/>
         <image name="ic_top_rated" width="24" height="24"/>
         <image name="ic_top_rated_inactive" width="24" height="24"/>
-        <image name="panda.jpg" width="320" height="480"/>
     </resources>
 </document>

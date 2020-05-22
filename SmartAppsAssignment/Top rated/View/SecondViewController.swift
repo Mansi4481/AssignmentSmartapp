@@ -44,6 +44,10 @@ class SecondViewController: UIViewController {
         
         self.presenter?.getData()
     }
+    @objc func deleteCell(_ sender: UIButton){
+           self.movieData.remove(at: sender.tag)
+           collectionView?.reloadData()
+       }
 }
 extension SecondViewController: TopRatedPToV{
     func getMovieData(data: [MovieModel]){
@@ -60,6 +64,9 @@ extension SecondViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCVC", for: indexPath) as! MovieCVC
+        cell.btnDelete?.tag = indexPath.row
+        cell.btnDelete?.addTarget(self, action: #selector(deleteCell(_:)), for: .touchUpInside)
+
         cell.loadData(dictData: movieData[indexPath.row])
         return cell
     }
