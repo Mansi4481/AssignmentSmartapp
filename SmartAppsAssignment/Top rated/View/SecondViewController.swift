@@ -13,6 +13,7 @@ class SecondViewController: UIViewController {
     var movieData = [MovieModel]()
     var allMovieData = [MovieModel]()
     var searchActive = false
+    var deletedCells = [Double]()
     private let refreshControl = UIRefreshControl()
     @IBOutlet weak var collectionView : UICollectionView?
     @IBOutlet weak var searchBar : UISearchBar?
@@ -45,13 +46,30 @@ class SecondViewController: UIViewController {
         self.presenter?.getData()
     }
     @objc func deleteCell(_ sender: UIButton){
-           self.movieData.remove(at: sender.tag)
-           collectionView?.reloadData()
+        self.updateMovieData(index: sender.tag)
+        self.movieData.remove(at: sender.tag)
+        collectionView?.reloadData()
        }
+    
+    func updateMovieData(index:Int){
+        let idToBeDeleted = self.movieData[index].id
+        deletedCells.append(idToBeDeleted)
+        let indexToBeDeleted = allMovieData.firstIndex { (movie) -> Bool in
+            return movie.id == idToBeDeleted
+        }
+        if indexToBeDeleted != nil{
+           self.allMovieData.remove(at: indexToBeDeleted!)
+        }
+    }
 }
 extension SecondViewController: TopRatedPToV{
     func getMovieData(data: [MovieModel]){
-        self.movieData = data
+        movieData.removeAll()
+        for movie in data{
+            if deletedCells.filter({$0 == movie.id}).count == 0{
+                self.movieData.append(movie)
+            }
+        }
         allMovieData = movieData
         self.collectionView?.reloadData()
         self.refreshControl.endRefreshing()
@@ -101,7 +119,7 @@ extension SecondViewController:UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchBar.showsCancelButton = true
         if searchText.count > 0{
-            movieData = allMovieData.filter({($0.title?.contains(searchText) ?? false)})
+            movieData = allMovieData.filter({($0.title?.localizedCaseInsensitiveContains(searchText) ?? false)})
         }else{
             movieData = allMovieData
         }
